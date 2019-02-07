@@ -1,0 +1,10 @@
+#	define the "coordinates" of the caddy source, including release version
+#	N.B. this file is sourced by shells and included in makefiles
+#		(warning: no quotes in makefiles, so URL better be escaped/clean)
+#
+
+CADDY_IMPORT_PREFIX=github.com/mholt
+CADDY_IMPORT_URL=${CADDY_IMPORT_PREFIX}/caddy
+
+# verison must be simple numerical version (no "v" prefix)
+CADDY_VERSION=0.11.2
