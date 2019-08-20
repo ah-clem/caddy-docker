@@ -1,11 +1,11 @@
 #	fetch caddy source, build it, then build a caddy image
 #
-FROM golang:1.11.5-alpine3.8 as builder
+FROM golang:1.12.9-alpine3.10 as builder
 
 ENV CGO_ENABLED 0
 ENV GOOS linux
 
-RUN apk add curl
+RUN apk add curl bash git
 
 #	set up builder and copy in build context (the caddy-docker repo)
 #
@@ -24,7 +24,7 @@ RUN ./src/tools/compile.sh
 
 #	now, put caddy executable in runtime image
 #
-FROM alpine:3.8
+FROM alpine:3.10
 
 RUN adduser -Du 1000 caddy
 

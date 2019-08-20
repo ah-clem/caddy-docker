@@ -1,3 +1,5 @@
+#! /bin/bash
+
 #	prepare_source -- fetch caddy release archive and prepare for compilation
 #
 
@@ -28,3 +30,6 @@ mv "target/src/${CADDY_IMPORT_PREFIX}/caddy-${CADDY_VERSION}" \
 # add other assets
 cp src/resources/caddyfile target
 
+# info
+echo INFO: caddy release archive is \"${CADDY_RELEASE_ASSET_URL}\"
+echo INFO: caddy source in \"target/src/${CADDY_IMPORT_URL}\"

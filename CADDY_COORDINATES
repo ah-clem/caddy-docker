@@ -1,10 +1,19 @@
 #	define the "coordinates" of the caddy source, including release version
 #	N.B. this file is sourced by shells and included in makefiles
 #		(warning: no quotes in makefiles, so URL better be escaped/clean)
+#		(warning: only the VERSION is used, the fancy stuff is sourced but
+#		 never used in Makefile.  Fragile!)
+#	N.B. the regular expression test requires that 'bash' is used
 #
 
-CADDY_IMPORT_PREFIX=github.com/mholt
-CADDY_IMPORT_URL=${CADDY_IMPORT_PREFIX}/caddy
-
 # verison must be simple numerical version (no "v" prefix)
-CADDY_VERSION=0.11.2
+#
+#CADDY_VERSION=0.11.2
+CADDY_VERSION=1.0.3
+
+# caddy coordinates depend on the version
+#
+CADDY_IMPORT_PREFIX=$(if [[ $CADDY_VERSION == 1.* ]] ; \
+	then echo 'github.com/caddyserver' ; \
+	else echo 'github.com/mholt' ; fi)
+CADDY_IMPORT_URL=${CADDY_IMPORT_PREFIX}/caddy
