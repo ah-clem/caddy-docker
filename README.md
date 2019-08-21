@@ -12,7 +12,8 @@ used (might not even work: needs to build from a git repo?).
 The top level contains the Dockerfile driving the download/compile/build process.  A Makefile
 captures basic steps of build, test, clean. It documents the exact shell commands used.
 
-The precise source release to be downloaded and built is defined in "CADDY_COORDINATES".
+The released version of Caddy to build is defined in "CADDY_VERSION".
+The precise source naming and repo location is defined in "CADDY_SOURCE".
 
 See "Testing" below for understanding of the "ci" directory.
 

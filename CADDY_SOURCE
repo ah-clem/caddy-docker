@@ -1,0 +1,15 @@
+#	define the "coordinates" of the caddy source and repo
+#
+#	N.B. the regular expression test requires that 'bash' is used
+#	N.B. CADDY_VERSION must be defined or code will exit with an error
+#
+
+: ${CADDY_VERSION:?version must be set, exiting}
+
+# 	the prefix is used in package naming and code preparation/unpacking
+# 	the base URL is the host+path to the base directory of the repo
+#
+CADDY_PREFIX=$(if [[ $CADDY_VERSION == 1.* ]] ; \
+	then echo 'github.com/caddyserver' ; \
+	else echo 'github.com/mholt' ; fi)
+CADDY_BASE_URL=${CADDY_PREFIX}/caddy

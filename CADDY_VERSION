@@ -1,0 +1,8 @@
+#	define Caddy version
+#
+#	N.B. this file is sourced by shells and included in makefiles
+
+# verison must be simple numerical version (no "v" prefix)
+#
+#CADDY_VERSION=0.11.2
+CADDY_VERSION=1.0.3

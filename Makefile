@@ -1,13 +1,13 @@
 #	building caddy Docker images outside of CI
 #
-include CADDY_COORDINATES
+include CADDY_VERSION
 DOCKER_IMAGE_NAME=caddy
 DOCKER_IMAGE_TAG=$(CADDY_VERSION)
 
-build: Dockerfile CADDY_COORDINATES
+build: Dockerfile CADDY_VERSION CADDY_SOURCE
 	docker build --file Dockerfile --tag $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG) .
 
-clean_build: Dockerfile CADDY_COORDINATES
+clean_build: Dockerfile CADDY_VERSION CADDY_SOURCE
 	docker build --no-cache --pull --file Dockerfile --tag $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG) .
 
 clean:
