@@ -1,0 +1,34 @@
+#! /bin/bash
+
+#
+#	TAG -- executed, it yeilds the version/tag text
+#	       executed with the -v flag, it yeilds version/tag release description
+#
+#	Usage note: update and commit this file, then tag the commit using this
+#		    file (e.g. git tag `./TAG`)).  A github release then be
+#		    made using this tag and even the release description can
+#		    be generated from this file (e.g. TAG -v).  This text can also
+#		    be used as the tag message (e.g. TAG -v | git tag -F - `./TAG`)
+#		    The description--included as a "here document"--have leading
+#		    tabs stripped ("<<-" form).
+
+tag=0.1.0
+
+if [ $# -eq 0 ]
+then
+    echo $tag
+    exit 0
+elif [ $1 == "-v" ]
+then 
+    echo Tag: $tag
+    echo
+    cat <<- EOT
+	This is the first release and is used
+	only as a test of the commit/tag/release/build
+	process
+	EOT
+    exit 0
+else
+    exit 1
+fi
+
