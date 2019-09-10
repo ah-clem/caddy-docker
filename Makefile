@@ -1,4 +1,5 @@
-#	building caddy Docker images outside of CI
+#	building caddy Docker images outside of CI and
+#	misc. source/repo management
 #
 include CADDY_VERSION
 DOCKER_IMAGE_NAME=caddy
@@ -14,3 +15,9 @@ clean:
 	/bin/rm -f go.mod go.sum
 	-chmod -R +w target
 	/bin/rm -rf target
+
+#	tag last commit on this branch with info in "TAG" file
+#	(best if TAG is commited prior to using it for a tag)
+.PHONY: tag
+tag:
+	./TAG -v | git tag -F - `./TAG`

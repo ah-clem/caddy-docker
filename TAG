@@ -2,10 +2,10 @@
 
 #
 #	TAG -- executed, it yeilds the version/tag text
-#	       executed with the -v flag, it yeilds version/tag release description
+#	       executed with the -v flag, it yeilds version/tag/release description
 #
 #	Usage note: update and commit this file, then tag the commit using this
-#		    file (e.g. git tag `./TAG`)).  A github release then be
+#		    file (e.g. git tag `./TAG`)).  A github release can then be
 #		    made using this tag and even the release description can
 #		    be generated from this file (e.g. TAG -v).  This text can also
 #		    be used as the tag message (e.g. TAG -v | git tag -F - `./TAG`)
