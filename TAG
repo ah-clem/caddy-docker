@@ -12,7 +12,7 @@
 #		    The description--included as a "here document"--have leading
 #		    tabs stripped ("<<-" form).
 
-tag=0.1.0
+tag=0.2.0
 
 if [ $# -eq 0 ]
 then
@@ -23,9 +23,7 @@ then
     echo Tag: $tag
     echo
     cat <<- EOT
-	This is the first release and is used
-	only as a test of the commit/tag/release/build
-	process
+	This release is used only as a test of the commit/tag/release/build process
 	EOT
     exit 0
 else
