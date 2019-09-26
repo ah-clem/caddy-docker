@@ -38,10 +38,3 @@ clean:
 .PHONY: tag
 tag:
 	./TAG -v | git tag -F - `./TAG`
-
-clean_build_release_artifacts: clean build_release_artifacts
-
-.PHONY: build_release_artifacts
-build_release_artifacts:
-	mkdir -p target/release_artifacts
-	tar -c -f target/release_artifacts/caddy-docker_v.tar.gz --exclude target *
