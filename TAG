@@ -12,7 +12,7 @@
 #		    The description--included as a "here document"--have leading
 #		    tabs stripped ("<<-" form).
 
-tag=0.2.1
+tag=0.2.2-rc1
 
 if [ $# -eq 0 ]
 then
