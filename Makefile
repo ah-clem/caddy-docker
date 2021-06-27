@@ -19,14 +19,16 @@ include CADDY_VERSION
 DOCKER_IMAGE_NAME	:= caddy
 DOCKER_IMAGE_TAG	:= $(CADDY_VERSION)
 SOURCE_TAG		:= $(shell TAG)
+PUBLISH_NAME		:= $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)
+CANONICAL_NAME		:= $(PUBLISH_NAME)_$(SOURCE_TAG)
 
 build: Dockerfile CADDY_VERSION CADDY_SOURCE
 	docker build --file Dockerfile \
-	    --tag $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)_$(SOURCE_TAG) .
+	    --tag $(CANONICAL_NAME) .
 
 clean_build: Dockerfile CADDY_VERSION CADDY_SOURCE
 	docker build --no-cache --pull --file Dockerfile \
-	    --tag $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)_$(SOURCE_TAG) .
+	    --tag $(CANONICAL_NAME) .
 
 clean:
 	/bin/rm -f go.mod go.sum
@@ -35,6 +37,11 @@ clean:
 
 #	tag last commit on this branch with info in "TAG" file
 #	(best if TAG is commited prior to using it for a tag)
-.PHONY: tag
-tag:
+#
+.PHONY: tag_source
+tag_source:
 	./TAG -v | git tag -F - `./TAG`
+
+.PHONY: tag_image
+tag_image:
+	docker tag $(CANONICAL_NAME) $(PUBLISH_NAME)
