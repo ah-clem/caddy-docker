@@ -1,3 +1,7 @@
+# This effort is over and broken (too many changes to Caddy build, too much complexity)
+
+So, the repo is here to perhaps harvest some snippets, that's it.
+
 # Docker image of a (vanilla) Caddy server
 
 Downloads a [Caddy](https://caddyserver.com/) source archive for a given release, compiles it, and builds
